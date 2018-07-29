@@ -5,4 +5,4 @@ feature 'Enter name' do
     click_button 'Submit'
     expect(page).to have_content 'Waka, lets play Rock, Paper, Scissors!'
   end 
-end 
+end

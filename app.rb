@@ -2,8 +2,15 @@ require 'sinatra/base'
 
 class Rps < Sinatra::Base
   get '/' do
-    'Rock paper Scissors, Lets Go!'
+    erb :index
   end
+
+  post '/names' do
+    @player_name = params[:player_name]
+    erb :play
+  end
+
+  
   
   # Start the server if ruby file executed directly
   run! if app_file == $0
