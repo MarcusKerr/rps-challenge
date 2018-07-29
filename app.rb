@@ -1,0 +1,10 @@
+require 'sinatra/base'
+
+class Rps < Sinatra::Base
+  get '/' do
+    'Rock paper Scissors, Lets Go!'
+  end
+  
+  # Start the server if ruby file executed directly
+  run! if app_file == $0
+end
