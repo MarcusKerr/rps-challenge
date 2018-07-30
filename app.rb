@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require_relative 'lib/player'
+require_relative 'lib/ai'
 class Rps < Sinatra::Base
   enable :sessions
 
@@ -8,18 +9,20 @@ class Rps < Sinatra::Base
   end
 
   post '/name' do
-    session[:name] = params[:player_name]
+    $player = Player.new(params[:player_name])
     redirect '/play'
   end
 
   get '/play' do
-    @name = session[:name]
+    @name = $player.name
     @move = session[:move]
+    @ai_move = session[:ai_move]
     erb :play
   end
 
   post '/play' do
     session[:move] = params[:move]
+    session[:ai_move] = Ai.new.move
     redirect '/play'
   end
 
