@@ -9,9 +9,19 @@ describe Ai do
   end
 
   describe '#move' do
-    it 'returns rock, paper or scissors from array' do
-      # allow(ai).to receive(:move) { ['Rock', 'Paper', 'Scissors', 'Lizard', 'Spock'].sample }
-      # expect(ai.move).to eq 'Rock' 
+    it 'returns rock from array' do
+      allow(ai).to receive(:move) { 'Rock' }
+      expect(ai.move).to eq 'Rock' 
+    end
+
+    it 'returns paper from array' do
+      allow(ai).to receive(:move) { 'Paper' }
+      expect(ai.move).to eq 'Paper' 
+    end
+
+    it 'returns scissors from array' do
+      allow(ai).to receive(:move) { 'Scissors' }
+      expect(ai.move).to eq 'Scissors' 
     end
   end 
 end

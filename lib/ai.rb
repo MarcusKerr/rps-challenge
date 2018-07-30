@@ -1,7 +1,10 @@
 # AI class
 class Ai 
-  attr_reader :move
   def initialize
-    @move = ['Rock', 'Paper', 'Scissors'].sample
+    @move_options = ['Rock', 'Paper', 'Scissors']
+  end
+
+  def move
+    @move_options.sample
   end
 end
