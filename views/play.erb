@@ -6,4 +6,7 @@
   <input type="submit" name="move" value="Scissors" />
 </form>
 
-You chose <%= @move %>!
+<% if @move %>
+  You chose <%= @move %>!
+  A.I chose Rock!
+<% end %>
