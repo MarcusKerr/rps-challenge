@@ -1,6 +1,7 @@
 require 'sinatra/base'
+require_relative 'lib/game'
 require_relative 'lib/player'
-require_relative 'lib/ai'
+require_relative 'lib/bot'
 class Rps < Sinatra::Base
   enable :sessions
 
@@ -9,21 +10,25 @@ class Rps < Sinatra::Base
   end
 
   post '/name' do
-    $player = Player.new(params[:player_name])
+    $game = Game.new(Player.new(params[:player_name]), Bot.new)
     redirect '/play'
   end
 
   get '/play' do
-    @name = $player.name
-    @move = session[:move]
-    @ai_move = session[:ai_move]
+    @name = $game.player.name
     erb :play
   end
 
-  post '/play' do
-    session[:move] = params[:move]
-    session[:ai_move] = Ai.new.move
-    redirect '/play'
+  post '/results' do
+    $game.player.move = params[:move]
+    $bot_move = $game.bot.move
+    redirect '/results'
+  end
+
+  get '/results' do
+    @move = $game.player.move
+    @bot_move = $bot_move
+    erb :results
   end
 
   # Start the server if ruby file executed directly

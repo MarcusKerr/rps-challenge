@@ -1,12 +1,7 @@
 <h1><%= @name %>, lets play!</h1>
 
-<form action="/play" method="post">
+<form action="/results" method="post">
   <input type="submit" name="move" value="Rock" />
   <input type="submit" name="move" value="Paper" />
   <input type="submit" name="move" value="Scissors" />
 </form>
-
-<% if @move %>
-  You chose <%= @move %>!
-  A.I chose <%= @ai_move%>!
-<% end %>

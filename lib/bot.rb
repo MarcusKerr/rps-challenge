@@ -1,5 +1,5 @@
-# AI class
-class Ai 
+# Bot class
+class Bot
   def initialize
     @move_options = ['Rock', 'Paper', 'Scissors']
   end
