@@ -1,4 +1,4 @@
-require 'player'
+require './models/player'
 describe Player do
   subject(:waka) { Player.new('Waka', move) }
   let(:move)     { 'Rock' }
