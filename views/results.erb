@@ -1,5 +1,5 @@
-<p>You chose <%= @move %>, Bot chose <%= @bot_move%>!</p>
-<p><%= @result %></p>
+<p><%= @game.player.name %> you chose <%= @game.player.move %>, Bobby the Bot chose <%= @game.bot.move%>!</p>
+<p><%= @game.result %></p>
 
 <form action="/play">
   <input type="submit" name="playe_again" value="Play again" />

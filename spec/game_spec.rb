@@ -1,6 +1,6 @@
 require './models/game'
 describe Game do
-  subject(:game) { described_class.new(player,bot) }
+  subject(:game) { described_class.new(player, bot) }
   let(:player)   { double :player }
   let(:bot)      { double :bot }
 
@@ -14,11 +14,5 @@ describe Game do
     it 'retrives the bot' do
       expect(game.bot).to eq bot
     end
-  end
-
-  describe '#results' do
-    it 'calculates the game result' do
-      
-    end 
   end
 end

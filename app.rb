@@ -20,40 +20,19 @@ class Rps < Sinatra::Base
     redirect '/play'
   end
 
-  post '/play' do
-    @game.player.move = params[:move]
-    @bot_move = @game.bot.make_move
-    # @result = @game.result
-    redirect '/results'
-  end
-
   get '/play' do
-    @name = @game.player.name
-    @move = @game.player.move
-    @bot_move = @game.bot.move
-    # @result = @result
     erb :play
   end
 
+  post '/play' do
+    @game.player.move = params[:move]
+    @game.bot.make_move
+    redirect '/results'
+  end
+
   get '/results' do
-    @move = @game.player.move
-    @bot_move = @game.bot.move
-    @result = @game.result
     erb :results
   end
-  
-
-  # post '/results' do
-  #   @game.player.move = params[:move]
-  #   redirect '/results'
-  # end
-
-  # get '/results' do
-  #   @move = @game.player.move
-  #   @bot_move = @game.bot.make_move
-  #   @result = @game.result
-  #   erb :results
-  # end
 
   # Start the server if ruby file executed directly
   run! if app_file == $0
