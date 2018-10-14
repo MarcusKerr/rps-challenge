@@ -1,7 +1,58 @@
-<p><%= @game.player.name %> you chose <%= @game.player.move %>, Bobby the Bot chose <%= @game.bot.move%>!</p>
-<p><%= @game.result %></p>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<form action="/play">
-  <input type="submit" name="playe_again" value="Play again" />
-</form>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <style>
+      
+    </style>
+
+    <title>Rock, Paper, Scissors - By Marcus Kerr</title>
+  </head>
+  <body>
+    <div class="container">
+      <p><%= @game.player.name %> you chose <%= @game.player.move %>, Bobby the Bot chose <%= @game.bot.move%>!</p>
+      
+      <div class="moves-container">
+        <% 
+        if @game.player.move == "Rock" && @game.bot.move == "Scissors" %>
+          <img src="images/rock_.jpg">
+          <img src="images/scissors_l_2.jpg">
+      <% elsif @game.player.move == "Rock" && @game.bot.move == "Paper" %>
+          <img src="images/rock_.jpg">
+          <img src="images/paper_2.jpg">
+      <% elsif @game.player.move == "Rock" && @game.bot.move == "Rock" %>
+          <img src="images/rock_.jpg">
+          <img src="images/rock_2.jpg">
+      <% elsif @game.player.move == "Paper" && @game.bot.move == "Rock" %>
+          <img src="images/paper_.jpg">
+          <img src="images/rock_2.jpg">
+      <% elsif @game.player.move == "Paper" && @game.bot.move == "Paper" %>
+          <img src="images/paper_.jpg">
+          <img src="images/paper_2.jpg">
+      <% elsif @game.player.move == "Paper" && @game.bot.move == "Scissors" %>
+          <img src="images/paper_l.jpg">
+          <img src="images/scissors_2.jpg">
+      <% elsif @game.player.move == "Scissors" && @game.bot.move == "Scissors" %>
+          <img src="images/scissors_.jpg">
+          <img src="images/scissors_2.jpg">
+      <% elsif @game.player.move == "Scissors" && @game.bot.move == "Rock" %>
+          <img src="images/scissors_l.jpg">
+          <img src="images/rock_2.jpg">
+      <% elsif @game.player.move == "Scissors" && @game.bot.move == "Paper" %>
+          <img src="images/scissors_.jpg">
+          <img src="images/paper_l_2.jpg">
+     <% end %>
+      </div>
+      
+      <h1><%= @game.result %></h1>
+
+      <form action="/play">
+        <input type="submit" name="playe_again" value="Play again" />
+      </form>
+    </div>
+  </body>
+</html>
 

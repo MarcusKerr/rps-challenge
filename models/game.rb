@@ -26,8 +26,8 @@ class Game
   end
 
   def result
-    return "You win!" if player_wins?
-    return "It a draw" if draw?
+    return "You Win!" if player_wins?
+    return "It a draw..." if draw?
     return "You Lose!" if !player_wins? && !draw?
   end
 

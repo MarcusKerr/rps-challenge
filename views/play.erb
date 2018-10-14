@@ -1,7 +1,43 @@
-<h1><%= @game.player.name %>, lets play!</h1>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<form action="/play" method="post">
-  <input type="submit" name="move" value="Rock" />
-  <input type="submit" name="move" value="Paper" />
-  <input type="submit" name="move" value="Scissors" />
-</form>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <style>
+      
+    </style>
+
+    <title>Rock, Paper, Scissors - By Marcus Kerr</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1><%= @game.player.name %>, lets play!</h1>
+      <h2>Choose your weapon</h2>
+
+      <form action="/play" method="post">
+      <div id="options-container">
+        <div class="option">
+          <img src="images/rock.jpg">
+          <div>
+            <input type="submit" name="move" value="Rock" />
+          </div>
+        </div>
+        <div class="option">
+          <img src="images/paper.jpg">
+          <div>
+            <input type="submit" name="move" value="Paper" />
+          </div>
+        </div>
+        <div class="option">
+          <img src="images/scissors.jpg">
+          <div>
+            <input type="submit" name="move" value="Scissors" />
+          </div>
+        </div>
+      </div>
+      </form>
+    </div>
+  </body>
+</html>
